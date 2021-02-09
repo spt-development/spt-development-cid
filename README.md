@@ -37,7 +37,7 @@ Release
 
 To build a release and upload to Maven Central run the following maven command:
 
-    $ export GPG_TTY=$(tty)
+    $ export GPG_TTY=$(tty) # Required on Mac OS X
     $ mvn deploy -DskipTests -Prelease
 
-NOTE. This is currently a manual step as not able to generate a sonatype nexus user token.
+NOTE. This is currently a manual step as not currently integrated into the build.

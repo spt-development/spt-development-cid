@@ -12,6 +12,7 @@ public final class CorrelationId {
 
     /**
      * Gets the correlation ID associated with the current thread.
+     *
      * @return the correlation ID.
      */
     public static String get() {
@@ -20,6 +21,7 @@ public final class CorrelationId {
 
     /**
      * Sets the current correlation ID associated with the current thread.
+     *
      * @param correlationId the correlation ID associated with the current thread.
      */
     public static void set(String correlationId) {

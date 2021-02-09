@@ -4,7 +4,7 @@
 
     <groupId>com.spt-development</groupId>
     <artifactId>spt-development-cid</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>cid</name>
     <description>A very simple library for getting/setting the current correlation ID, utilising ThreadLocal.</description>
@@ -40,6 +40,8 @@
         <junit-jupiter.version>5.7.0</junit-jupiter.version>
 
         <!-- Plugin versions -->
+        <checkstyle.version>8.39</checkstyle.version>
+        <checkstyle-maven-plugin.version>3.1.1</checkstyle-maven-plugin.version>
         <findbugs-slf4j-bug-pattern.version>1.4.2</findbugs-slf4j-bug-pattern.version>
         <findbugs-sec-bug-pattern.version>1.8.0</findbugs-sec-bug-pattern.version>
         <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
@@ -62,8 +64,8 @@
     </properties>
 
     <dependencies>
-	<!-- Third-party dependencies -->
-	<!-- None -->
+        <!-- Third-party dependencies -->
+        <!-- None -->
 
         <!-- Test dependencies -->
         <dependency>
@@ -146,6 +148,30 @@
                                 <dependencyConvergence/>
                             </rules>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${checkstyle-maven-plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${checkstyle.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <configLocation>spt_checks.xml</configLocation>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
