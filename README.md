@@ -19,7 +19,7 @@ Usage
     
     ...
     
-    public void main(String[] args) {
+    public static void main(String[] args) {
         CorrelationId.set(UUID.randomUUID().toString());
 
         System.out.printf("[%s] Hello, world!", CorrelationId.get());
