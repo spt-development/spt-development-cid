@@ -28,4 +28,14 @@ class CorrelationIdTest {
 
         assertThat(result, is(TestData.CORRELATION_ID));
     }
+
+    @Test
+    void get_resetCorrelationId_shouldReturnDefault() {
+        CorrelationId.set(TestData.CORRELATION_ID);
+        CorrelationId.reset();
+
+        final String result = CorrelationId.get();
+
+        assertThat(result, is(CorrelationId.DEFAULT));
+    }
 }

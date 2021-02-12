@@ -20,6 +20,13 @@ public final class CorrelationId {
     }
 
     /**
+     * Resets the current correlation ID associated with the current thread to the default (unset) value.
+     */
+    public static void reset() {
+        set(DEFAULT);
+    }
+
+    /**
      * Sets the current correlation ID associated with the current thread.
      *
      * @param correlationId the correlation ID associated with the current thread.
