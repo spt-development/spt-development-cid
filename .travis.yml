@@ -16,7 +16,6 @@ script:
   - mvn org.pitest:pitest-maven:mutationCoverage -B
 
 before_deploy:
-  - cp .travis.settings.xml $HOME/.m2/settings.xml
   - POM_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
   - openssl aes-256-cbc -K $encrypted_4f0d00631887_key -iv $encrypted_4f0d00631887_iv -in .travis/gpg.asc.enc -out .travis/gpg.asc -d
 
