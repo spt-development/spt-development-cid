@@ -12,7 +12,7 @@ env:
     - secure: fKAJZ9wpO1l5GXBWKg7YPwqXBng3cvhkWYFxKBj09GNr4+SKg9JmYK3Avt+4O7xaAnV/nLfTA+465NtLQ5au/8u6O77JKvQKznhUjG7C57Z2yUUY5fJa0piUNg57SfNysx1B5KpDyNp6e8i37ccxziCCy7IXNYm5lDLhQP/C9gHsJEJ95E5sGTxSE0hn1mavYKDJqT3kaVlsVwmiWOs6WylUb3nYxD3qGR4Tf3Wm77blyBxEaVTiRgTZGensfMCKVbBJnSRisFXcvL9I3Z02wmZVQJK20wYRRRLM3NMqM5cY2tN2Scoh/MIogvg/HqCQ4bDPe+PPJHplJfkYS6c8yaQsypM63ISQlrzC1lx7BeqsCyKCWWFmDANT8ccnY/C7h6AhPgJyZaQV/h8KRcHAEOX9kasfHyvtYA7RLbS/uK79Onrl7MjJ5YSx9dAiH75t1iEI8F9pnKLfLyxlmYrTtOjMv0JWuDIbRwjjiNNW7AK6xg25OSLK6ObiFJG1JcvUFFmO92OqX/OpDFNEUQ9SHd12UsG+1jTzH3zbJBVIj/1XvL41o7xO3KXbayfey8PZaSr822J89SE/m4BIgQwiVsLLKtnalYhaimR40Qk2zroFBbbAENKFetWotW/EI6PetFXJ/sCSgDz/uGr4czpnLNmsNtnNF9KtfGHSInhaTUk=
 
 script:
-  - mvn clean install -B
+  - mvn test -B
   - mvn org.pitest:pitest-maven:mutationCoverage -B
 
 before_deploy:
@@ -24,7 +24,7 @@ before_deploy:
 deploy:
   - provider: script
     script:
-      - mvn --settings .travis/maven-settings.xml release:prepare release:perform -Prelease -B
+      - mvn --settings .travis/maven-settings.xml release:prepare release:perform -DskipTests -Prelease -B
     on:
       branch: main
 
