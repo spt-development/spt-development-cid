@@ -3,6 +3,9 @@ language: java
 jdk:
   - openjdk8
 
+git:
+  depth: false
+
 env:
   global:
     - secure: 0jyFMSl7c1IHxWEq/OTU5Pmax6t3UyoInmk7t2nTHathVh3KpFIdkp7ew/sJaCPBE2mnyEUPJY53sJaf8d+p0l8EJd9KXzExV9+v0WS9lH+pvTok5tBrsGJXLE8tCoK8v4liS8ErI05Qtf5baiBf03+s0j5KttMXXwb3a8g1DQXDiGaqg+l7qTgChY7Z5+Jsej+lVxEr/thEeouny+Zq3ICx63hHvAlPs86VI4YB0Aaqhj7hQHfaD6LeDHb7ka1ICSdSUm3Hd78j2TtX7t8Winkio6o5TL95gvl1h/v+5JYCAuB3CyTFuzVokPZ3JUxIPvMFXAYp8lbeq4xILb5cHNtM8lK4bkFxUNEAAWTxI+MeVT4HgMrpNdB+STsLm0dnbWqvatWiOvVL5goGiS44G71jc/nSx+jwHEaaki6m1/j2PmuXvkpv6fDna8318DhStZueTjitBs3KUqO1cqQc/f03cKhKVaPAJToLm0P7UFcmc5BsQeKUhOeCVvGf8HdQy3MOlZbKcbHjeGVXU/erUNhrL2u7e99KfqyPv/EQJwlHmtBPaqm6z29HLzUsuv07N6mC1PyqlM9bZRW3C9SVfeYTc3tgmym6vGSpggwXJBrnYKdsWh8rE1L/7iC+iBzOEL5igNZpC356uRZNYGh9MI1u1/w1vW5SWAbtTOluFQc=
