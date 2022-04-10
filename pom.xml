@@ -60,7 +60,6 @@
         <asm.version>9.2</asm.version>
         <checkstyle.version>8.45.1</checkstyle.version>
         <maven-dependency-analyzer.version>1.11.3</maven-dependency-analyzer.version>
-        <maven-scm-provider-gitexe.version>1.9.4</maven-scm-provider-gitexe.version>
         <pitest-junit5-plugin.version>0.14</pitest-junit5-plugin.version>
     </properties>
 
@@ -301,13 +300,6 @@
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${maven-release-plugin.version}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.scm</groupId>
-                        <artifactId>maven-scm-provider-gitexe</artifactId>
-                        <version>${maven-scm-provider-gitexe.version}</version>
-                    </dependency>
-                </dependencies>
                 <configuration>
                     <scmDevelopmentCommitComment>[skip travis] [maven-release-plugin] </scmDevelopmentCommitComment>
                     <tagNameFormat>@{project.version}</tagNameFormat>
