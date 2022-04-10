@@ -303,7 +303,7 @@
                 <version>${maven-release-plugin.version}</version>
                 <configuration>
                     <goals>deploy</goals>
-                    <scmDevelopmentCommitComment>[skip travis] [maven-release-plugin] </scmDevelopmentCommitComment>
+                    <scmDevelopmentCommitComment>[skip travis] [maven-release-plugin] prepare for next development iteration</scmDevelopmentCommitComment>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>

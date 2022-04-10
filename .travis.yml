@@ -38,6 +38,11 @@ deploy:
     script:
       mvn --settings .travis/maven-settings.xml release:prepare release:perform -DskipTests -Prelease -B
     on:
+      # Don't want to create another release when the final version is checked in. One way to prevent this would to be
+      # include [skip travis] in the commit comment, however, that would then prevent the release to github below from
+      # running as well. Setting tags to false, will prevent this deploy step from running, however it also requires
+      # the 'Limit concurrent jobs' setting to be set to zero for this repository, otherwise, the build can be started
+      # before the tag has been applied
       tags: false
       branch: main
 
