@@ -3,7 +3,7 @@
 
     <groupId>com.spt-development</groupId>
     <artifactId>spt-development-cid</artifactId>
-    <version>2.0.2-SNAPSHOT</version>
+    <version>2.0.1-SNAPSHOT</version>
 
     <name>cid</name>
     <description>A very simple library for getting/setting the current correlation ID, utilising ThreadLocal.</description>
@@ -12,8 +12,7 @@
     <scm>
         <connection>scm:git:https://github.com/spt-development/spt-development-cid.git</connection>
         <url>https://github.com/spt-development/spt-development-cid</url>
-      <tag>HEAD</tag>
-  </scm>
+    </scm>
 
     <licenses>
         <license>
@@ -49,7 +48,7 @@
         <maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
-        <maven-release-plugin.version>3.0.0-M5</maven-release-plugin.version>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <nexus-staging-plugin.version>1.6.8</nexus-staging-plugin.version>
@@ -61,6 +60,7 @@
         <asm.version>9.2</asm.version>
         <checkstyle.version>8.45.1</checkstyle.version>
         <maven-dependency-analyzer.version>1.11.3</maven-dependency-analyzer.version>
+        <maven-scm-provider-gitexe.version>1.9.4</maven-scm-provider-gitexe.version>
         <pitest-junit5-plugin.version>0.14</pitest-junit5-plugin.version>
     </properties>
 
@@ -301,8 +301,15 @@
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${maven-release-plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>${maven-scm-provider-gitexe.version}</version>
+                    </dependency>
+                </dependencies>
                 <configuration>
-                    <scmDevelopmentCommitComment>[skip travis] [maven-release-plugin] </scmDevelopmentCommitComment>
+                    <scmCommentPrefix>[skip travis] [maven-release-plugin] </scmCommentPrefix>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
