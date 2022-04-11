@@ -12,8 +12,7 @@
     <scm>
         <connection>scm:git:https://github.com/spt-development/spt-development-cid.git</connection>
         <url>https://github.com/spt-development/spt-development-cid</url>
-      <tag>HEAD</tag>
-  </scm>
+    </scm>
 
     <licenses>
         <license>
@@ -303,7 +302,7 @@
                 <version>${maven-release-plugin.version}</version>
                 <configuration>
                     <goals>deploy</goals>
-                    <scmDevelopmentCommitComment>[skip travis] [maven-release-plugin] prepare for next development iteration</scmDevelopmentCommitComment>
+                    <scmCommentPrefix>[skip travis] [maven-release-plugin] </scmCommentPrefix>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
