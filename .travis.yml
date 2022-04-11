@@ -29,6 +29,10 @@ script:
   - mvn test -B
   - mvn org.pitest:pitest-maven:mutationCoverage -B
 
+before_deploy:
+  # Set tag to be used by releases provider
+  - export TRAVIS_TAG=$POM_VERSION
+
 deploy:
   # For any checkin to main branch, create a final version, tag it and push the artifacts to Sonatype
   - provider: script
