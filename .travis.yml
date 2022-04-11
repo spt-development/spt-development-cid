@@ -10,6 +10,9 @@ git:
 install:
   - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
   - cd $TRAVIS_REPO_SLUG
+  - POM_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec | sed -e 's/-SNAPSHOT//')
+  - openssl aes-256-cbc -K $encrypted_4f0d00631887_key -iv $encrypted_4f0d00631887_iv -in .travis/gpg.asc.enc -out .travis/gpg.asc -d
+  - gpg --fast-import .travis/gpg.asc
 
 env:
   global:
@@ -25,11 +28,6 @@ env:
 script:
   - mvn test -B
   - mvn org.pitest:pitest-maven:mutationCoverage -B
-
-before_deploy:
-  - POM_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec | sed -e 's/-SNAPSHOT//')
-  - openssl aes-256-cbc -K $encrypted_4f0d00631887_key -iv $encrypted_4f0d00631887_iv -in .travis/gpg.asc.enc -out .travis/gpg.asc -d
-  - gpg --fast-import .travis/gpg.asc
 
 deploy:
   # For any checkin to main branch, create a final version, tag it and push the artifacts to Sonatype
