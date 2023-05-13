@@ -15,22 +15,26 @@ A very simple library for getting/setting the current correlation ID, utilising 
 Usage
 =====
 
+```java
     import com.spt.development.cid.CorrelationId;
     
-    ...
-    
-    public static void main(String[] args) {
-        CorrelationId.set(UUID.randomUUID().toString());
+    public class MyApp {
+        public static void main(String[] args) {
+            CorrelationId.set(UUID.randomUUID().toString());
 
-        System.out.printf("[%s] Hello, world!", CorrelationId.get());
+            System.out.printf("[%s] Hello, world!", CorrelationId.get());
+        }
     }
+```
 
 Building locally
 ================
 
 To build the library, run the following maven command:
 
-    $ mvn clean install
+```shell
+$ mvn clean install
+```
 
 Release
 =======
