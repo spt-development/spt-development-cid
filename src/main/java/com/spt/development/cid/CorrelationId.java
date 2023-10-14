@@ -6,7 +6,7 @@ package com.spt.development.cid;
 public final class CorrelationId {
     static final String DEFAULT = "no-cid";
 
-    private static final ThreadLocal<String> value = ThreadLocal.withInitial(() -> DEFAULT);
+    private static final ThreadLocal<String> VALUE = ThreadLocal.withInitial(() -> DEFAULT);
 
     private CorrelationId() {}
 
@@ -16,7 +16,7 @@ public final class CorrelationId {
      * @return the correlation ID.
      */
     public static String get() {
-        return value.get();
+        return VALUE.get();
     }
 
     /**
@@ -32,6 +32,6 @@ public final class CorrelationId {
      * @param correlationId the correlation ID associated with the current thread.
      */
     public static void set(String correlationId) {
-        value.set(correlationId);
+        VALUE.set(correlationId);
     }
 }
