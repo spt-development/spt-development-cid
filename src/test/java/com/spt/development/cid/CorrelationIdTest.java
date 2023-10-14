@@ -9,8 +9,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 class CorrelationIdTest {
-    private interface TestData {
-        String CORRELATION_ID = "9cd5cb0c-c281-44e9-be36-4dded3da8d97";
+    private static class TestData {
+        static final String CORRELATION_ID = "9cd5cb0c-c281-44e9-be36-4dded3da8d97";
     }
 
     @Test
